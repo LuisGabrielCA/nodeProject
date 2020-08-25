@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
-  	<title>Sidebar 02</title>
+  	<title>Cadastrar</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -11,78 +11,71 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../public/assets/css/styleMenu.css">
+        
   </head>
   <body>
 		
-		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
-				<div class="custom-menu">
-					<button type="button" id="sidebarCollapse" class="btn btn-primary">
-	          <i class="fa fa-bars"></i>
-	          <span class="sr-only">Toggle Menu</span>
-	        </button>
-        </div>
-				<div class="p-4 pt-5">
-		  		<h1><a href="index.html" class="logo">Splash</a></h1>
-	        <ul class="list-unstyled components mb-5">
-	          <li class="active">
-	            <a href="#" aria-expanded="false">Home</a>
-	            <ul class="collapse list-unstyled" id="homeSubmenu">
-	            </ul>
-	          </li>
-	          <li>
-	              <a href="#">About</a>
-	          </li>
-	          <li>
-              <a href="#"  aria-expanded="false" >Pages</a>
-	          <li>
-              <a href="#">Portfolio</a>
-	          </li>
-	          <li>
-              <a href="#">Contact</a>
-	          </li>
-	        </ul>
-
-
-	        <div class="footer">
-	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved to LuisG <i class="icon-heart" aria-hidden="true"></i>
-						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-	        </div>
-
-	      </div>
-    	</nav>
-
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+          <i class="fa fa-bars"></i>
+          <span class="sr-only">Toggle Menu</span>
+        </button>
+    </div>
+            <div class="p-4 pt-5">
+              <h1><a class="logo">APP</a></h1>
+        <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="/home" aria-expanded="false" class="">Home</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+            </ul>
+          </li>
+          <li>
+              <a href="/addUser">Cadastrar</a>
+          </li>
+          <li>
+          <a href="/listUser" aria-expanded="false" class="">Listar</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+          </ul>
+          </li>
+          <li>
+          <a href="#">Filtrar por Bairro/Região</a>
+          </li>
+  
+        </ul>
+    
+    </nav>
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
 
         <h2 class="mb-4">Cadastrar</h2>
-        <h1>Formulário para cadastrar usúarios</h1>
-    <form action="/addUsuario" method="POST">
-
+        
+    <form action="/cadUsuario" method="POST">
+    
         <div class="form-group col-md-4">
-            <label for="nome">Nome</label>
+            <label  for="nome">Nome</label>
             <input type="text" class="form-control" id="nome" name="nome">
         </div>
         <div class="form-group col-md-4">
-            <label for="endereco">Endereco</label>
+            <label  for="endereco">Endereco</label>
             <input type="text" class="form-control" id="endereco" name="endereco">
 
         </div>
         <div class="form-row">
             <div class="form-group col-md-2">
-                <label for="telefone">Telefone</label>
-                <input type="text" class="form-control" id="telefone" name="telefone">
+                <label  for="telefone">Telefone</label>
+                <input  type="text" class="form-control" id="telefone" name="telefone">
             </div>
             <div class="form-group col-md-2">
-                <label for="celular">Celular</label>
+                <label  for="celular">Celular</label>
                 <input type="text" class="form-control" id="celular" name="celular">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-2">
-                <label for="bairro">Bairro</label>
+                <label  for="bairro">Bairro</label>
                 <input type="text" class="form-control" id="bairro" name="bairro">
             </div>
             <div class="form-group col-md-2">
@@ -91,7 +84,7 @@
             </div>
         </div>
         <div class="form-group col-md-4">
-            <label for="sexo">Sexo</label>
+            <label  for="sexo">Sexo</label>
             <select id="sexo" name="sexo" class="form-control">
                 <option selected>Escolher...</option>
                 <option value="masculino">Masculino</option>
@@ -103,11 +96,11 @@
             <input type="text" class="form-control" id="dtnascimento" name="dtnascimento">
         </div>
         <div class="form-group col-md-4">
-            <label for="email">E-mail</label>
+            <label  for="email">E-mail</label>
             <input type="text" class="form-control" id="email" name="email">
         </div>
         <div class="form-group col-md-4">
-            <label for="estadocivil">Estado Civil</label>
+            <label  for="estadocivil">Estado Civil</label>
             <select id="estadocivil" name="estadocivil" class="form-control">
                 <option selected>Escolher...</option>
                 <option value="solteiro">Solteiro(a)</option>
@@ -116,18 +109,18 @@
             </select>
         </div>
         <div class="form-group col-md-4">
-            <label for="filhos">Filhos</label>
+            <label  for="filhos">Filhos</label>
             <input type="text" class="form-control" id="filhos" name="filhos">
         </div>
         <div class="form-group col-md-4">
-            <label for="origem">Origem</label>
+            <label  for="origem">Origem</label>
             <input type="text" class="form-control" id="origem" name="origem">
         </div>
         <div class="form-group">
-            <label for="observacao">Observação</label>
+            <label  for="observacao">Observação</label>
             <textarea class="form-control" id="observacao" name="observacao" rows="3" style="width:620px;"></textarea>
         </div>
-
+    
         <button type="submit" class="btn btn-primary">Cadastrar</button>
     </form>
       </div>

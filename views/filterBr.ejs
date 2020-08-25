@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
-  	<title>Home</title>
+  	<title>Filtrar</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -41,24 +41,42 @@
           </ul>
           </li>
           <li>
-          <a href="/filterBr">Filtrar por Bairro/Região</a>
+          <a href="#">Filtrar por Bairro/Região</a>
           </li>
   
         </ul>
     
     </nav>
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
 
-    <!-- Page Content  -->
-  <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">Filtrar por Bairro/Região</h2>
+        
+    <form action="/resultFilter" method="GET">
 
-    <h2 class="mb-4">Home</h2>
     
-  </div>
-       
-    <script src="../public/assets/js/jquery.min.js"></script>
-    <script src="../public/assets/js/popper.js"></script>
-    <script src="../public/assets/js/bootstrap.min.js"></script>
-	<script src="../public/assets/js/main.js"></script>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label  for="bairro">Bairro</label>
+                <input type="text" class="form-control" id="bairro" name="bairro" >
+            </div>
+            <div class="form-group col-md-2">
+                <label for="regiao">Região</label>
+                <input type="text" class="form-control" id="regiao" name="regiao" >
+            </div>
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Filtrar</button>
+        
+
+    </form>
+      </div>
+		</div>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+	<script src="../js/main.js"></script>
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

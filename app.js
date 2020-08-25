@@ -12,13 +12,20 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extend: false}))
 app.use(bodyParser.json())
 
-//Rotas
+//statics
+app.use('/public', express.static('public'));
+
+//rotas
 app.get('/home', function(req,res){
 res.render("../views/home")
 
 })
 
-app.post('/addUsuario', function(req,res){
+app.get('/addUser', function(req,res){
+    res.render("../views/addUser")
+})
+
+app.post('/cadUsuario', function(req,res){
     cadastro.create({
         nome: req.body.nome,
         telefone: req.body.telefone,
@@ -45,21 +52,14 @@ app.post('/addUsuario', function(req,res){
     })
 })
 
-app.get('/usuarios', function (req,res){
-    cadastro.findAll().then(function(cadastro){
 
-        res.render('usuarios', {cadastro: cadastro})
-
-    })
-})
-
-app.get('/deletar/:idusuarios',function(req,res){
+app.get('/delUser/:idusuarios',function(req,res){
    
     cadastro.destroy({
         where:{'idusuarios' :req.params.idusuarios}
     }).then(function(){
 
-        res.render('../views/deletar')
+        res.render('../views/delUser')
 
     }).catch(function(erro){
 
@@ -68,7 +68,7 @@ app.get('/deletar/:idusuarios',function(req,res){
     
 })
 
-app.get ('/update/:idusuarios', async function(req,res){
+app.get ('/updateUser/:idusuarios', async function(req,res){
 
    const usuario = await cadastro.findAll({
 
@@ -76,8 +76,8 @@ app.get ('/update/:idusuarios', async function(req,res){
             idusuarios: req.params.idusuarios
         }
     })
-    console.log(usuario)
-    res.render('../views/update', {usuario: usuario[0]})
+
+    res.render('../views/updateUser', {usuario: usuario[0]})
 
 })
 
@@ -109,5 +109,36 @@ app.post('/controllerUpdate/', (req,res) =>{
     })
 })
 
- 
+app.get('/listUser', function (req,res){
+    cadastro.findAll().then(function(cadastro){
+
+        res.render('listUser', {cadastro: cadastro})
+
+    })
+})
+
+app.get('/filterBr', function(req,res){
+
+    res.render("../views/filterBr")
+})
+
+app.get ('/resultFilter', function(req,res){
+       
+    cadastro.findAll({
+        where:{
+            bairro: req.query.bairro,
+            regiao: req.query.regiao
+        }
+
+    }).then(function(cadastro){
+
+        res.render('resultFilter', {cadastro: cadastro})
+        
+    }).catch(function(erro){
+
+        res.send("ERRO: " + erro)
+    })
+    
+})
+
 app.listen(8080)
