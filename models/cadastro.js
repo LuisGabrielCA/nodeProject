@@ -2,52 +2,50 @@ const bd = require('./bd')
 
 const Cadastro = bd.sequelize.define('usuarios', {
 
-idusuarios: {
-type: bd.Sequelize.INTEGER,
-autoIncrement: true,
-primaryKey: true
-
-},
-
-nome: {
+  idusuarios: {
+    type: bd.Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
+  nome: {
     type: bd.Sequelize.STRING
-},
-telefone: {
+  },
+  telefone: {
     type: bd.Sequelize.INTEGER
-},
-celular: {
+  },
+  celular: {
     type: bd.Sequelize.INTEGER
-},
-bairro:{
+  },
+  bairro: {
     type: bd.Sequelize.STRING
-},
-regiao: {
+  },
+  regiao: {
     type: bd.Sequelize.STRING
-},
-sexo:{
+  },
+  sexo: {
     type: bd.Sequelize.CHAR
-},
-dtnascimento:{
+  },
+  dtnascimento: {
     type: bd.Sequelize.DATE
-},
-email:{
+  },
+  email: {
     type: bd.Sequelize.STRING
-},
-endereco:{
+  },
+  endereco: {
     type: bd.Sequelize.STRING
-},
-estadocivil:{
+  },
+  estadocivil: {
     type: bd.Sequelize.STRING
-},
-filhos:{
+  },
+  filhos: {
     type: bd.Sequelize.STRING
-},
-origem:{
+  },
+  origem: {
     type: bd.Sequelize.STRING
-},
-observacao:{
+  },
+  observacao: {
     type: bd.Sequelize.STRING
-}
+  }
 
 })
 

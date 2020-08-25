@@ -47,7 +47,7 @@ app.post('/cadUsuario', function(req,res){
 
     }).catch(function(erro){
 
-        res.send("Erro:" + erro)
+        res.send("ERRO:" + erro)
 
     })
 })
@@ -102,7 +102,7 @@ app.post('/controllerUpdate/', (req,res) =>{
         { where: { idusuarios: req.body.idusuarios } }
       ).then(function(){
 
-      res.send("ATUALIZADO COM SUCESSO")
+      res.render('../views/updateUserSucess')
       }).catch(function(erro){
 
         res.send("Cadastro não alterado: " + erro)

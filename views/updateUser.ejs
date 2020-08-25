@@ -17,41 +17,41 @@
   <body>
 		
     <div class="wrapper d-flex align-items-stretch">
-        <nav id="sidebar">
-            <div class="custom-menu">
-                <button type="button" id="sidebarCollapse" class="btn btn-primary">
-          <i class="fa fa-bars"></i>
-          <span class="sr-only">Toggle Menu</span>
-        </button>
-    </div>
-            <div class="p-4 pt-5">
-              <h1><a class="logo">APP</a></h1>
-        <ul class="list-unstyled components mb-5">
-          <li class="active">
-            <a href="/home" aria-expanded="false" class="">Home</a>
-            <ul class="collapse list-unstyled" id="homeSubmenu">
-            </ul>
-          </li>
-          <li>
-              <a href="/addUser">Cadastrar</a>
-          </li>
-          <li>
-          <a href="/listUser" aria-expanded="false" class="">Listar</a>
-          <ul class="collapse list-unstyled" id="pageSubmenu">
+      <nav id="sidebar">
+          <div class="custom-menu">
+              <button type="button" id="sidebarCollapse" class="btn btn-primary">
+        <i class="fa fa-bars"></i>
+        <span class="sr-only">Toggle Menu</span>
+      </button>
+  </div>
+          <div class="p-4 pt-5">
+            <h1><a class="logo">APP</a></h1>
+      <ul class="list-unstyled components mb-5">
+        <li class="active">
+          <a href="/home" aria-expanded="false" class="">Home</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
           </ul>
-          </li>
-          <li>
-          <a href="#">Filtrar por Bairro/Região</a>
-          </li>
-  
+        </li>
+        <li>
+            <a href="/addUser">Cadastrar</a>
+        </li>
+        <li>
+        <a href="/listUser" aria-expanded="false" class="">Listar</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
         </ul>
-    
-    </nav>
+        </li>
+        <li>
+        <a href="/filterBr">Filtrar por Bairro/Região</a>
+        </li>
 
-        <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5 pt-5">
+      </ul>
+  
+  </nav>
 
-        <h2 class="mb-4">Atualizar Cadastro</h2>
+    <!-- Page Content  -->
+  <div id="content" class="p-4 p-md-5 pt-5">
+
+    <h2 class="mb-4">Atualizar Cadastro</h2>
 
   <form action="/controllerUpdate" id="formUser" method="POST">
 
@@ -124,10 +124,10 @@
         value="<%= usuario.observacao%>"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
-    <hr>
-
 
   </form>
+
+  </div>
 
   <script src="../js/jquery.min.js"></script>
     <script src="../js/popper.js"></script>
