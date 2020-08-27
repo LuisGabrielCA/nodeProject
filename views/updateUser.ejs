@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-br">
   <head>
   	<title>Atualizar Usuario</title>
     <meta charset="utf-8">
@@ -12,6 +12,7 @@
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../public/assets/css/styleMenu.css">
+        <link rel="stylesheet" href="../public/assets/css/styleForm.css">
         
   </head>
   <body>
@@ -53,75 +54,78 @@
 
     <h2 class="mb-4">Atualizar Cadastro</h2>
 
-  <form action="/controllerUpdate" id="formUser" method="POST">
+  <form action="/controllerUpdate" id="formUser" method="POST" onsubmit="formatForm()">
 
     <!-- label/input para sequelize localizar o id-->
     <label for="idusuarios"></label>
-    <input type="hidden" class="form-control" id="idusuarios" name="idusuarios" value="<%= usuario.idusuarios %> ">
+    <input type="hidden" class="form-control" id="idusuarios" name="idusuarios" value="<%= usuario.idusuarios %>">
     <!---------------------------------------------->
 
     <div class="form-group col-md-4">
       <label for="nome">Nome</label>
-      <input type="text" class="form-control" id="nome" name="nome" value="<%= usuario.nome %> ">
+      <input type="text" class="form-control" id="nome" name="nome" value="<%= usuario.nome %>" required>
     </div>
     <div class="form-group col-md-4">
-      <label for="endereco">Endereco</label>
-      <input type="text" class="form-control" id="endereco" name="endereco" value="<%= usuario.endereco %>">
+      <label for="endereco">Endereço</label>
+      <input type="text" class="form-control" id="endereco" name="endereco" value="<%= usuario.endereco %>" required>
 
     </div>
     <div class="form-row">
       <div class="form-group col-md-2">
-        <label for="telefone">Telefone</label>
-        <input type="text" class="form-control" id="telefone" name="telefone" value="<%= usuario.telefone%>">
+        <label id="tel" for="telefone">Telefone</label>
+        <input type="text" class="form-control" id="telefone" name="telefone" value="<%= usuario.telefone%>" data-mask="(00) 0000-0000">
       </div>
       <div class="form-group col-md-2">
-        <label for="celular">Celular</label>
-        <input type="text" class="form-control" id="celular" name="celular" value="<%= usuario.celular %>">
+        <label id="cel" for="celular">Celular</label>
+        <input type="text" class="form-control" id="celular" name="celular" value="<%= usuario.celular %>" data-mask="(00) 00000-0000">
       </div>
     </div>
-    <div class="form-row">
-      <div class="form-group col-md-2">
+    
+      <div class="form-group col-md-4">
         <label for="bairro">Bairro</label>
-        <input type="text" class="form-control" id="bairro" name="bairro" value="<%= usuario.bairro %>">
+        <input type="text" class="form-control" id="bairro" name="bairro" value="<%= usuario.bairro %>" required>
       </div>
-      <div class="form-group col-md-2">
+      <div class="form-group col-md-4">
         <label for="regiao">Região</label>
-        <input type="text" class="form-control" id="regiao" name="regiao" value="<%= usuario.regiao %>">
+        <input type="text" class="form-control" id="regiao" name="regiao" value="<%= usuario.regiao %>" required>
       </div>
+      <div class="form-row">
+    <div class="form-group col-md-2">
+      <label id="sex" for="sexo">Sexo</label>
+      <input type="text" id="sexo" name="sexo" class="form-control" value="<%= usuario.sexo %>" required>
     </div>
-    <div class="form-group col-md-4">
-      <label for="sexo">Sexo</label>
-      <input type="text" id="sexo" name="sexo" class="form-control" value="<%= usuario.sexo %>">
+    <div class="form-group col-md-2">
+      <label id="dt" for="dtnascimento">Data de Nascimento</label>
+      <input type="text" class="form-control" id="dtnascimento" name="dtnascimento" value="<%= usuario.dtnascimento %>" data-mask="00/00/0000" required>
     </div>
-    <div class="form-group col-md-4">
-      <label for="dtnascimento">Data de Nascimento</label>
-      <input type="text" class="form-control" id="dtnascimento" name="dtnascimento" value="<%= usuario.dtnascimento %>">
     </div>
     <div class="form-group col-md-4">
       <label for="email">E-mail</label>
       <input type="text" class="form-control" id="email" name="email" value="<%= usuario.email %>">
     </div>
-    <div class="form-group col-md-4">
-      <label for="estadocivil">Estado Civil</label>
-      <select id="estadocivil" name="estadocivil" class="form-control">
+    <div class="form-row">
+    <div class="form-group col-md-2">
+      <label id="est" for="estadocivil">Estado Civil</label>
+      <select id="estadocivil" name="estadocivil" class="form-control" required>
         <option selected><%= usuario.estadocivil %></option>
-        <option value="solteiro">Solteiro(a)</option>
-        <option value="casado">Casado(a)</option>
-        <option value="viuvo">Viuvo(a)</option>
+        <option value="SOLTEIRO(A)">Solteiro(a)</option>
+        <option value="CASADO(A)">Casado(a)</option>
+        <option value="DIVORCIADO(A)">Divorciado(a)</option>
+        <option value="VIUVO(A)">Viuvo(a)</option>
       </select>
     </div>
-    <div class="form-group col-md-4">
-      <label for="filhos">Filhos</label>
+    <div class="form-group col-md-2">
+      <label id="son" for="filhos">Filhos</label>
       <input type="text" class="form-control" id="filhos" name="filhos" value="<%= usuario.filhos %>">
+    </div>
     </div>
     <div class="form-group col-md-4">
       <label for="origem">Origem</label>
       <input type="text" class="form-control" id="origem" name="origem" value="<%= usuario.origem %>">
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-4">
       <label for="observacao">Observação</label>
-      <textarea class="form-control" id="observacao" name="observacao" rows="3" style="width:620px;"
-        value="<%= usuario.observacao%>"></textarea>
+      <input type="text" class="form-control" id="observacao" name="observacao" value="<%= usuario.observacao%>">
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
 
@@ -129,10 +133,11 @@
 
   </div>
 
-  <script src="../js/jquery.min.js"></script>
-    <script src="../js/popper.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-	<script src="../js/main.js"></script>
+    <script src="../public/assets/js/jquery.min.js"></script>
+    <script src="../public/assets/js/popper.js"></script>
+    <script src="../public/assets/js/bootstrap.min.js"></script>
+    <script src="../public/assets/js/main.js"></script>
+    <script src="../public/assets/js/javaS.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
