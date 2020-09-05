@@ -25,7 +25,8 @@
         </button>
     </div>
             <div class="p-4 pt-5">
-              <h1><a class="logo">APP</a></h1>
+              <h5 id="linha">.</h5>
+              <h5 id="linha">.</h5> 
         <ul class="list-unstyled components mb-5">
           <li class="active">
             <a href="/home" aria-expanded="false" class="">Home</a>
@@ -36,7 +37,7 @@
               <a href="/addUser">Cadastrar</a>
           </li>
           <li>
-          <a href="/listUser" aria-expanded="false" class="">Listar</a>
+            <a href="/search" aria-expanded="false" class="">Pesquisar</a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
           </ul>
           </li>
@@ -64,14 +65,39 @@
                 <label for="regiao">Região</label>
                 <input type="text" class="form-control" id="regiao" name="regiao" >
             </div>
+            <div class="form-group col-md-2">
+              <label id="sex" for="sexo">Sexo</label>
+              <select id="sexo" name="sexo" class="form-control">
+                <option selected></option>
+                <option value="MASCULINO">Masculino</option>
+                <option value="FEMININO">Feminino</option>
+            </select>
+            </div>
         </div>
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <label id="est" for="estadocivil">Estado Civil</label>
+            <select id="estadocivil" name="estadocivil" class="form-control">
+              <option selected> </option>
+              <option value="SOLTEIRO(A)">Solteiro(a)</option>
+              <option value="CASADO(A)">Casado(a)</option>
+              <option value="DIVORCIADO(A)">Divorciado(a)</option>
+              <option value="VIUVO(A)">Viuvo(a)</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label id="son" for="filhos">Filhos</label>
+            <select id="filhos" name="filhos" class="form-control">
+              <option selected> </option>
+              <option value="SIM">Sim</option>
+              <option value="NAO">Não</option>
+          </select>
+          </div>
+          </div>
     
         <button type="submit" class="btn btn-primary">Filtrar</button>
-        
 
     </form>
-      </div>
-		</div>
 
     <script src="../public/assets/js/jquery.min.js"></script>
     <script src="../public/assets/js/popper.js"></script>

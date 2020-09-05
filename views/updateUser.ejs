@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-br">
   <head>
-  	<title>Atualizar Usuario</title>
+  	<title>Atualizar Pessoa</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -26,7 +26,8 @@
       </button>
   </div>
           <div class="p-4 pt-5">
-            <h1><a class="logo">APP</a></h1>
+            <h5 id="linha">.</h5>
+              <h5 id="linha">.</h5> 
       <ul class="list-unstyled components mb-5">
         <li class="active">
           <a href="/home" aria-expanded="false" class="">Home</a>
@@ -37,7 +38,7 @@
             <a href="/addUser">Cadastrar</a>
         </li>
         <li>
-        <a href="/listUser" aria-expanded="false" class="">Listar</a>
+          <a href="/search" aria-expanded="false" class="">Pesquisar</a>
         <ul class="collapse list-unstyled" id="pageSubmenu">
         </ul>
         </li>
@@ -54,7 +55,7 @@
 
     <h2 class="mb-4">Atualizar Cadastro</h2>
 
-  <form action="/controllerUpdate" id="formUser" method="POST" onsubmit="formatForm()">
+  <form action= "/controllerUpdate" id="formUser" method="POST" onsubmit="formatForm()">
 
     <!-- label/input para sequelize localizar o id-->
     <label for="idusuarios"></label>
@@ -92,18 +93,23 @@
       <div class="form-row">
     <div class="form-group col-md-2">
       <label id="sex" for="sexo">Sexo</label>
-      <input type="text" id="sexo" name="sexo" class="form-control" value="<%= usuario.sexo %>" required>
+      <select id="sexo" name="sexo" class="form-control" required>
+        <option selected><%= usuario.sexo %></option>
+        <option value="MASCULINO">Masculino</option>
+        <option value="FEMININO">Feminino</option>
+    </select>
     </div>
     <div class="form-group col-md-2">
       <label id="dt" for="dtnascimento">Data de Nascimento</label>
       <input type="text" class="form-control" id="dtnascimento" name="dtnascimento" value="<%= usuario.dtnascimento %>" data-mask="00/00/0000" required>
     </div>
     </div>
-    <div class="form-group col-md-4">
-      <label for="email">E-mail</label>
+    
+    <div class="form-row">
+    <div class="form-group col-md-2">
+      <label id="emaill" for="email">E-mail</label>
       <input type="text" class="form-control" id="email" name="email" value="<%= usuario.email %>">
     </div>
-    <div class="form-row">
     <div class="form-group col-md-2">
       <label id="est" for="estadocivil">Estado Civil</label>
       <select id="estadocivil" name="estadocivil" class="form-control" required>
@@ -114,9 +120,19 @@
         <option value="VIUVO(A)">Viuvo(a)</option>
       </select>
     </div>
+    </div>
+    <div class="form-row">
     <div class="form-group col-md-2">
       <label id="son" for="filhos">Filhos</label>
-      <input type="text" class="form-control" id="filhos" name="filhos" value="<%= usuario.filhos %>">
+      <select id="filhos" name="filhos" class="form-control" required>
+        <option selected><%= usuario.filhos %> </option>
+        <option value="SIM">Sim</option>
+        <option value="NAO">Não</option>
+    </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label id="qt" for="qtFilhos">Quant. Filhos</label>
+      <input type="text" class="form-control" id="qtFilhos" name="qtFilhos" value="<%= usuario.qtFilhos %>">
     </div>
     </div>
     <div class="form-group col-md-4">
@@ -127,7 +143,30 @@
       <label for="observacao">Observação</label>
       <input type="text" class="form-control" id="observacao" name="observacao" value="<%= usuario.observacao%>">
     </div>
-    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit">Editar</button>
+    <a href='/home'type="button" class="btn btn-secondary" >Cancelar</a>
+
+    <!------------------------------------------------------------------------------------------------------------------------------------>
+    <div class="modal" tabindex="-1" role="dialog" id ="edit">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">ALERTA</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Você realmente deseja concluir a edição ?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-danger">Concluir</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
   </form>
 

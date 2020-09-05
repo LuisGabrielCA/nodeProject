@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-br">
   <head>
-  	<title>Listar Usuarios</title>
+  	<title>Listar Cadastro</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -26,7 +26,8 @@
         </button>
     </div>
             <div class="p-4 pt-5">
-              <h1><a class="logo">APP</a></h1>
+              <h5 id="linha">.</h5>
+              <h5 id="linha">.</h5> 
         <ul class="list-unstyled components mb-5">
           <li class="active">
             <a href="/home" aria-expanded="false" class="">Home</a>
@@ -37,7 +38,7 @@
               <a href="/addUser">Cadastrar</a>
           </li>
           <li>
-          <a href="/listUser" aria-expanded="false" class="">Listar</a>
+            <a href="/search" aria-expanded="false" class="">Pesquisar</a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
           </ul>
           </li>
@@ -52,10 +53,8 @@
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
 
-        <h2 class="mb-4">Usuários Cadastrados</h2>
+        <h2 class="mb-4">Detalhes Pessoa</h2>
   <form action="" id="formUser" >
-   
-    <% cadastro.forEach(function(user){ %>
       
     <div class="form-group col-md-4">
       <label for="nome">Nome</label>
@@ -97,20 +96,29 @@
       <input readonly type="text" class="form-control" id="dtnascimento" name="dtnascimento" value="<%= user.dtnascimento %>">
     </div>
     </div>
-    <div class="form-group col-md-4">
-      <label for="email">E-mail</label>
+    
+    <div class="form-row">
+    <div class="form-group col-md-2">
+      <label id="emaill" for="email">E-mail</label>
       <input readonly type="text" class="form-control" id="email" name="email" value="<%= user.email %>">
     </div>
-    <div class="form-row">
     <div class="form-group col-md-2">
       <label id="est" for="estadocivil">Estado Civil</label>
       <input readonly type="text" id="estadocivil" name="estadocivil" class="form-control" value="<%= user.estadocivil %>">
     </div>
+    </div>
+
+    <div class="form-row">
     <div class="form-group col-md-2">
       <label id="son" for="filhos">Filhos</label>
       <input readonly type="text" class="form-control" id="filhos" name="filhos" value="<%= user.filhos %>">
     </div>
-  </div>
+    <div class="form-group col-md-2">
+      <label id="qt" for="qtFilhos">Quant. Filhos</label>
+      <input readonly type="text" class="form-control" id="qtFilhos" name="qtFilhos" value="<%= user.qtFilhos %>">
+    </div>
+    </div>
+  
     <div class="form-group col-md-4">
       <label for="origem">Origem</label>
       <input readonly type="text" class="form-control" id="origem" name="origem" value="<%= user.origem %>">
@@ -119,14 +127,32 @@
       <label for="observacao">Observação</label>
       <input readonly type="text" class="form-control" id="observacao" name="observacao" value="<%= user.observacao%>">
     </div>
-    <a href='delUser/<%= user.idusuarios%>' type="button" class="btn btn-danger">Deletar</a>
-    <a href='updateUser/<%= user.idusuarios%>' type="button" class="btn btn-primary">Editar</a>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleted">Deletar</button>
+    <a href='/updateUser/<%= user.idusuarios%>' type="button" class="btn btn-primary">Editar</a>
     <hr>
     </hr>
-    
-    <% }) %>
-  
 
+    <!------------------------------------------------------------------------------------------------------------------------------------>
+    <div class="modal" tabindex="-1" role="dialog" id ="deleted">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">ALERTA</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Você realmente deseja deletar o cadastro?</p>
+          </div>
+          <div class="modal-footer">
+            <a href='/delUser/<%= user.idusuarios%>' type="button" class="btn btn-danger">Deletar</a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
   </form>
 
   <script src="../public/assets/js/jquery.min.js"></script>

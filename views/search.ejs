@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-br">
   <head>
-  	<title>Home</title>
+  	<title>Pesquisar</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -11,8 +11,7 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../public/assets/css/styleMenu.css">
-    <link rel="stylesheet" href="../public/assets/css/styleForm.css">
+        <link rel="stylesheet" href="../public/assets/css/styleMenu.css">
         
   </head>
   <body>
@@ -27,7 +26,7 @@
     </div>
             <div class="p-4 pt-5">
               <h5 id="linha">.</h5>
-              <h5 id="linha">.</h5>     
+              <h5 id="linha">.</h5> 
         <ul class="list-unstyled components mb-5">
           <li class="active">
             <a href="/home" aria-expanded="false" class="">Home</a>
@@ -38,7 +37,7 @@
               <a href="/addUser">Cadastrar</a>
           </li>
           <li>
-          <a href="/search" aria-expanded="false" class="">Pesquisar</a>
+            <a href="/search" aria-expanded="false" class="">Pesquisar</a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
           </ul>
           </li>
@@ -49,19 +48,48 @@
         </ul>
     
     </nav>
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
 
-    <!-- Page Content  -->
-  <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">Pesquisar Pessoa</h2>
+        
+    <form action="/searchResult" method="GET">
+      
+        <div class="form-group col-md-4">
+        <label for="idusuarios">ID</label>
+        <input type="text" class="form-control" id="idusuarios" name="idusuarios" >
+        </div>
 
-    <h2 class="mb-4">Home</h2>
-    <h5>SEJA BEM VINDO(A)</h5>
+        <label>OU</label>
+
+        <div class="form-group col-md-4">
+        <label  for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" >
+        </div>
+
+        <label>OU</label>
+
+        <div class="form-group col-md-4">
+        <label  id= "tel" for="telefone">Telefone</label>
+        <input  type="text" class="form-control" id="telefone" name="telefone" data-mask="(00) 0000-0000">
+        </div>
+
+        <label>OU</label>
+
+        <div class="form-group col-md-4">
+        <label id="cel" for="celular">Celular</label>
+        <input type="text" class="form-control" id="celular" name="celular" data-mask="(00) 00000-0000">
+        </div>
+
     
-  </div>
-       
+        <button type="submit" class="btn btn-primary">Pesquisar</button>
+
+    </form>
+
     <script src="../public/assets/js/jquery.min.js"></script>
     <script src="../public/assets/js/popper.js"></script>
     <script src="../public/assets/js/bootstrap.min.js"></script>
-	<script src="../public/assets/js/main.js"></script>
+	  <script src="../public/assets/js/main.js"></script>
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

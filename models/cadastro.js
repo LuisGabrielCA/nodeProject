@@ -75,6 +75,9 @@ const Cadastro = bd.sequelize.define('usuarios', {
   filhos: {
     type: bd.Sequelize.STRING
   },
+  qtFilhos: {
+    type: bd.Sequelize.STRING
+  },
   origem: {
     type: bd.Sequelize.STRING
   },

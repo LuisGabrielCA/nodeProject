@@ -27,7 +27,8 @@
         </button>
     </div>
             <div class="p-4 pt-5">
-              <h1><a class="logo">APP</a></h1>
+                <h5 id="linha">.</h5>
+                <h5 id="linha">.</h5> 
         <ul class="list-unstyled components mb-5">
           <li class="active">
             <a href="/home" aria-expanded="false" class="">Home</a>
@@ -38,7 +39,7 @@
               <a href="/addUser">Cadastrar</a>
           </li>
           <li>
-          <a href="/listUser" aria-expanded="false" class="">Listar</a>
+            <a href="/search" aria-expanded="false" class="">Pesquisar</a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
           </ul>
           </li>
@@ -87,7 +88,7 @@
         <div class="form-group col-md-2">
             <label id="sex" for="sexo">Sexo</label>
             <select id="sexo" name="sexo" class="form-control" required>
-                <option value= "N/A" selected>Escolher...</option>
+                <option selected></option>
                 <option value="MASCULINO">Masculino</option>
                 <option value="FEMININO">Feminino</option>
             </select>
@@ -97,25 +98,37 @@
             <input type="text" class="form-control" id="dtnascimento" name="dtnascimento" width="100" data-mask="00/00/0000" required>
         </div>
         </div>
-        <div class="form-group col-md-4">
-            <label  for="email">E-mail</label>
-            <input type="text" class="form-control" id="email" name="email">
-        </div>
         
         <div class="form-row">
-        <div class="form-group col-md-2">
-            <label id="est" for="estadocivil">Estado Civil</label>
-            <select id="estadocivil" name="estadocivil" class="form-control" required>
-                <option value="N/A" selected>Escolher...</option>
-                <option value="SOLTEIRO(A)">Solteiro(a)</option>
-                <option value="CASADO(A)">Casado(a)</option>
-                <option value="DIVORCIADO(A)">Divorciado(a)</option>
-                <option value="VIUVO(A)">Viuvo(a)</option>
-            </select>
+        
+            <div class="form-group col-md-2">
+                <label id="est" for="estadocivil">Estado Civil</label>
+                <select id="estadocivil" name="estadocivil" class="form-control" required>
+                    <option selected> </option>
+                    <option value="SOLTEIRO(A)">Solteiro(a)</option>
+                    <option value="CASADO(A)">Casado(a)</option>
+                    <option value="DIVORCIADO(A)">Divorciado(a)</option>
+                    <option value="VIUVO(A)">Viuvo(a)</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label  id = "emaill" for="email">E-mail</label>
+                <input type="text" class="form-control" id="email" name="email">
+            </div>
         </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label id="son" for="filhos">Filhos</label>
+                <select id="filhos" name="filhos" class="form-control" required>
+                    <option selected> </option>
+                    <option value="SIM">Sim</option>
+                    <option value="NAO">Não</option>
+                </select>
+            </div>
         <div class="form-group col-md-2">
-            <label id="son" for="filhos">Filhos</label>
-            <input type="text" class="form-control" id="filhos" name="filhos">
+            <label id="qt" for="qtFilhos">Quant. Filhos</label>
+            <input type="text" class="form-control" id="qtFilhos" name="qtFilhos">
         </div>
         </div>
 
