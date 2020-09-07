@@ -4,7 +4,7 @@ const cadastro = require('../models/cadastro')
 
 // filtrar
 router.get('/filterUser', function (req, res) {
-  res.render('../views/filterBr')
+  res.render('../views/filterUser')
 })
 
 // resultado filtro

@@ -4,7 +4,7 @@ const cadastro = require('../models/cadastro')
 
 // formulario procurar cadastro
 router.get('/searchUser', function (req, res) {
-  res.render('../views/search')
+  res.render('../views/searchUser')
 })
 
 // procurar cadastro (resultado unico)

@@ -4,7 +4,7 @@ const cadastro = require('../models/cadastro')
 
 // formulario add cadastro
 router.get('/formAddUser', function (req, res) {
-  res.render('../views/addUser')
+  res.render('../views/formAddUser')
 })
 
 // cadastrar usuario
