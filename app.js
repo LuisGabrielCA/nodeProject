@@ -33,7 +33,7 @@ app.use('/list', list)
 
 app.use('/search', search)
 
-app.use('/', home)
+app.use('/home', home)
 
 // OUTROS
 var port = process.env.PORT || 3000

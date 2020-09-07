@@ -15,7 +15,7 @@ router.get('/searchResult', function (req, res) {
   var c = req.query.celular
 
   if (i === '' && n === '' && t === '' && c === '') {
-    res.render('search')
+    res.render('/searchUser')
   }
 
   if (i !== '' && n === '' && t === '' && c === '') {
