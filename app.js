@@ -2,13 +2,13 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 
-const cadUser = require('./routers/cadUser')
-const delUser = require('./routers/delUser')
-const editUser = require('./routers/editUser')
-const filterUser = require('./routers/filterUser')
-const listUser = require('./routers/listUser')
-const searchUser = require('./routers/searchUser')
-const home = require('./routers/home')
+const cadUser = require('./routes/cadUser')
+const delUser = require('./routes/delUser')
+const editUser = require('./routes/editUser')
+const filterUser = require('./routes/filterUser')
+const listUser = require('./routes/listUser')
+const searchUser = require('./routes/searchUser')
+const home = require('./routes/home')
 
 // TEMPLATE
 app.set('view engine', 'ejs')
@@ -31,7 +31,7 @@ app.use('/filterUser', filterUser)
 
 app.use('/listUser', listUser)
 
-app.use('searchUser', searchUser)
+app.use('/searchUser', searchUser)
 
 app.use('/home', home)
 
