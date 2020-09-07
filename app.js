@@ -6,7 +6,7 @@ const add = require('./routes/add')
 const del = require('./routes/del')
 const edit = require('./routes/edit')
 const filter = require('./routes/filter')
-const list = require('./routes/list')
+const listUser = require('./routes/listUser')
 const search = require('./routes/search')
 const home = require('./routes/home')
 
@@ -29,7 +29,7 @@ app.use('/edit', edit)
 
 app.use('/filter', filter)
 
-app.use('/list', list)
+app.use('/listUser', listUser)
 
 app.use('/search', search)
 
