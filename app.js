@@ -6,7 +6,7 @@ const add = require('./routes/add')
 const del = require('./routes/del')
 const edit = require('./routes/edit')
 const filter = require('./routes/filter')
-const listUser = require('./routes/listUser')
+const list = require('./routes/list')
 const search = require('./routes/search')
 const home = require('./routes/home')
 
@@ -29,11 +29,11 @@ app.use('/edit', edit)
 
 app.use('/filter', filter)
 
-app.use('/listUser', listUser)
+app.use('/list', list)
 
 app.use('/search', search)
 
-app.use('/home', home)
+app.use('/', home)
 
 // OUTROS
 var port = process.env.PORT || 3000
