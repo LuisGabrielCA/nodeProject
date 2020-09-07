@@ -3,25 +3,29 @@ const app = express()
 const bodyParser = require('body-parser')
 const cadastro = require('./models/cadastro')
 
-// template
+// TEMPLATE
 app.set('view engine', 'ejs')
 
-// bodyParser
+// BODYPARSER
 app.use(bodyParser.urlencoded({ extend: false }))
 app.use(bodyParser.json())
 
-// statics
+// STATICS
 app.use('/public', express.static('public'))
 
-// rotas
+// ROTAS
+
+// home
 app.get('/home', function (req, res) {
   res.render('../views/home')
 })
 
+// form adicionar usuario
 app.get('/addUser', function (req, res) {
   res.render('../views/addUser')
 })
 
+// cadastrar usuario
 app.post('/cadUsuario', function (req, res) {
   cadastro.create({
     nome: req.body.nome,
@@ -46,6 +50,7 @@ app.post('/cadUsuario', function (req, res) {
   })
 })
 
+// deletar usuario
 app.get('/delUser/:idusuarios', function (req, res) {
   cadastro.destroy({
     where: { idusuarios: req.params.idusuarios }
@@ -56,6 +61,7 @@ app.get('/delUser/:idusuarios', function (req, res) {
   })
 })
 
+// form editar usuario
 app.get('/updateUser/:idusuarios', async function (req, res) {
   const usuario = await cadastro.findAll({
 
@@ -66,6 +72,7 @@ app.get('/updateUser/:idusuarios', async function (req, res) {
   res.render('../views/updateUser', { usuario: usuario[0] })
 })
 
+// editar usuario
 app.post('/controllerUpdate/', (req, res) => {
   cadastro.update(
     {
@@ -92,6 +99,7 @@ app.post('/controllerUpdate/', (req, res) => {
   })
 })
 
+// listar usuario
 app.get('/listUser/:idusuarios', async function (req, res) {
   const user = await cadastro.findAll({
     where: {
@@ -101,11 +109,12 @@ app.get('/listUser/:idusuarios', async function (req, res) {
   res.render('../views/listUser', { user: user[0] })
 })
 
-// PROCURAR CADASTRO
+// form procurar cadastro
 app.get('/search', function (req, res) {
   res.render('../views/search')
 })
 
+// procurar cadastro (resultado unico)
 app.get('/searchResult', function (req, res) {
   var i = req.query.idusuarios
   var n = req.query.nome
@@ -165,11 +174,12 @@ app.get('/searchResult', function (req, res) {
   }
 })
 
-// Filtros
+// filtrar
 app.get('/filterBr', function (req, res) {
   res.render('../views/filterBr')
 })
 
+// resultado filtro
 app.get('/resultFilter', function (req, res) {
   var b = req.query.bairro
   var r = req.query.regiao
@@ -201,7 +211,6 @@ app.get('/resultFilter', function (req, res) {
       res.send('ERRO: ' + erro)
     })
   }
-  // bairro
   if (b === '' && r !== '' && s !== '' && est !== '' && f !== '') {
     cadastro.findAll({
       where: {
@@ -382,9 +391,7 @@ app.get('/resultFilter', function (req, res) {
       res.send('ERRO: ' + erro)
     })
   }
-  // fim bairro
 
-  // região
   if (b !== '' && r === '' && s !== '' && est !== '' && f !== '') {
     cadastro.findAll({
       where: {
@@ -525,9 +532,6 @@ app.get('/resultFilter', function (req, res) {
       res.send('ERRO: ' + erro)
     })
   }
-  // fim regiao
-
-  // sexo
 
   if (b !== '' && r !== '' && s === '' && est !== '' && f !== '') {
     cadastro.findAll({
@@ -630,9 +634,7 @@ app.get('/resultFilter', function (req, res) {
       res.send('ERRO: ' + erro)
     })
   }
-  // fim sexo
 
-  // estado civil
   if (b !== '' && r !== '' && s !== '' && est === '' && f !== '') {
     cadastro.findAll({
       where: {
@@ -761,9 +763,7 @@ app.get('/resultFilter', function (req, res) {
       res.send('ERRO: ' + erro)
     })
   }
-  // fim estado civil
 
-  // filhos
   if (b !== '' && r !== '' && s !== '' && est !== '' && f === '') {
     cadastro.findAll({
       where: {
@@ -881,6 +881,7 @@ app.get('/resultFilter', function (req, res) {
   }
 })
 
+// listen port
 var port = process.env.PORT || 3000
 app.listen(port, function () {
   console.log('Umbler listening on port %s', port)
