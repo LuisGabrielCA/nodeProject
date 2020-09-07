@@ -31,20 +31,20 @@
                 <h5 id="linha">.</h5> 
         <ul class="list-unstyled components mb-5">
           <li class="active">
-            <a href="/home" aria-expanded="false" class="">Home</a>
+            <a href="/home/home" aria-expanded="false" class="">Home</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
             </ul>
           </li>
           <li>
-              <a href="/addUser">Cadastrar</a>
+              <a href="/add/formAddUser">Cadastrar</a>
           </li>
           <li>
-            <a href="/search" aria-expanded="false" class="">Pesquisar</a>
+            <a href="/search/searchUser" aria-expanded="false" class="">Pesquisar</a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
           </ul>
           </li>
           <li>
-          <a href="/filterBr">Filtrar</a>
+          <a href="/filter/filterUser">Filtrar</a>
           </li>
   
         </ul>
@@ -55,7 +55,7 @@
 
         <h2 class="mb-4">Cadastrar</h2>
         
-    <form action="/cadUsuario" method="POST" onsubmit="formatForm()">
+    <form action="/add/addUser" method="POST" onsubmit="formatForm()">
     
         <div class="form-group col-md-4">
             <label  for="nome">Nome</label>

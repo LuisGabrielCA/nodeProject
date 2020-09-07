@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const cadastro = require('./models/cadastro')
+const cadastro = require('../models/cadastro')
 
 router.get('/listUser/:idusuarios', async function (req, res) {
   const user = await cadastro.findAll({

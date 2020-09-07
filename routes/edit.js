@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const cadastro = require('./models/cadastro')
+const cadastro = require('../models/cadastro')
 
 // formulario editar cadastro
 router.get('/updateUser/:idusuarios', async function (req, res) {

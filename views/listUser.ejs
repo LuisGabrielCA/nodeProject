@@ -30,20 +30,20 @@
               <h5 id="linha">.</h5> 
         <ul class="list-unstyled components mb-5">
           <li class="active">
-            <a href="/home" aria-expanded="false" class="">Home</a>
+            <a href="/home/home" aria-expanded="false" class="">Home</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
             </ul>
           </li>
           <li>
-              <a href="/addUser">Cadastrar</a>
+              <a href="/add/formAddUser">Cadastrar</a>
           </li>
           <li>
-            <a href="/search" aria-expanded="false" class="">Pesquisar</a>
+            <a href="/search/searchUser" aria-expanded="false" class="">Pesquisar</a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
           </ul>
           </li>
           <li>
-          <a href="/filterBr">Filtrar</a>
+          <a href="/filter/filterUser">Filtrar</a>
           </li>
   
         </ul>
@@ -128,7 +128,7 @@
       <input readonly type="text" class="form-control" id="observacao" name="observacao" value="<%= user.observacao%>">
     </div>
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleted">Deletar</button>
-    <a href='/updateUser/<%= user.idusuarios%>' type="button" class="btn btn-primary">Editar</a>
+    <a href='/edit/updateUser/<%= user.idusuarios%>' type="button" class="btn btn-primary">Editar</a>
     <hr>
     </hr>
 
@@ -146,7 +146,7 @@
             <p>Você realmente deseja deletar o cadastro?</p>
           </div>
           <div class="modal-footer">
-            <a href='/delUser/<%= user.idusuarios%>' type="button" class="btn btn-danger">Deletar</a>
+            <a href='/del/delUser/<%= user.idusuarios%>' type="button" class="btn btn-danger">Deletar</a>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
           </div>
         </div>

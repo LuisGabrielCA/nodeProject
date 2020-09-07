@@ -1,6 +1,6 @@
 const bd = require('./bd')
 
-const Cadastro = bd.sequelize.define('usuarios', {
+const cadastro = bd.sequelize.define('usuarios', {
 
   idusuarios: {
     type: bd.Sequelize.INTEGER,
@@ -87,4 +87,4 @@ const Cadastro = bd.sequelize.define('usuarios', {
 
 })
 
-module.exports = Cadastro
+module.exports = cadastro

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const cadastro = require('./models/cadastro')
+const cadastro = require('../models/cadastro')
 
 // deletar cadastro
 router.get('/delUser/:idusuarios', function (req, res) {

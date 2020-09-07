@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-br">
   <head>
-  	<title>Pesquisar</title>
+  	<title>Filtrar</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -29,20 +29,20 @@
               <h5 id="linha">.</h5> 
         <ul class="list-unstyled components mb-5">
           <li class="active">
-            <a href="/home" aria-expanded="false" class="">Home</a>
+            <a href="/home/home" aria-expanded="false" class="">Home</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
             </ul>
           </li>
           <li>
-              <a href="/addUser">Cadastrar</a>
+              <a href="/add/formAddUser">Cadastrar</a>
           </li>
           <li>
-            <a href="/search" aria-expanded="false" class="">Pesquisar</a>
+            <a href="/search/searchUser" aria-expanded="false" class="">Pesquisar</a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
           </ul>
           </li>
           <li>
-          <a href="/filterBr">Filtrar</a>
+          <a href="/filter/filterUser">Filtrar</a>
           </li>
   
         </ul>
@@ -51,38 +51,51 @@
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
 
-        <h2 class="mb-4">Pesquisar Pessoa</h2>
+        <h2 class="mb-4">Filtrar por Bairro/Região</h2>
         
-    <form action="/searchResult" method="GET">
-      
-        <div class="form-group col-md-4">
-        <label for="idusuarios">ID</label>
-        <input type="text" class="form-control" id="idusuarios" name="idusuarios" >
-        </div>
-
-        <label>OU</label>
-
-        <div class="form-group col-md-4">
-        <label  for="nome">Nome</label>
-        <input type="text" class="form-control" id="nome" name="nome" >
-        </div>
-
-        <label>OU</label>
-
-        <div class="form-group col-md-4">
-        <label  id= "tel" for="telefone">Telefone</label>
-        <input  type="text" class="form-control" id="telefone" name="telefone" data-mask="(00) 0000-0000">
-        </div>
-
-        <label>OU</label>
-
-        <div class="form-group col-md-4">
-        <label id="cel" for="celular">Celular</label>
-        <input type="text" class="form-control" id="celular" name="celular" data-mask="(00) 00000-0000">
-        </div>
+    <form action="/filter/resultFilter" method="GET">
 
     
-        <button type="submit" class="btn btn-primary">Pesquisar</button>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label  for="bairro">Bairro</label>
+                <input type="text" class="form-control" id="bairro" name="bairro" >
+            </div>
+            <div class="form-group col-md-2">
+                <label for="regiao">Região</label>
+                <input type="text" class="form-control" id="regiao" name="regiao" >
+            </div>
+            <div class="form-group col-md-2">
+              <label id="sex" for="sexo">Sexo</label>
+              <select id="sexo" name="sexo" class="form-control">
+                <option selected></option>
+                <option value="MASCULINO">Masculino</option>
+                <option value="FEMININO">Feminino</option>
+            </select>
+            </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <label id="est" for="estadocivil">Estado Civil</label>
+            <select id="estadocivil" name="estadocivil" class="form-control">
+              <option selected> </option>
+              <option value="SOLTEIRO(A)">Solteiro(a)</option>
+              <option value="CASADO(A)">Casado(a)</option>
+              <option value="DIVORCIADO(A)">Divorciado(a)</option>
+              <option value="VIUVO(A)">Viuvo(a)</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label id="son" for="filhos">Filhos</label>
+            <select id="filhos" name="filhos" class="form-control">
+              <option selected> </option>
+              <option value="SIM">Sim</option>
+              <option value="NAO">Não</option>
+          </select>
+          </div>
+          </div>
+    
+        <button type="submit" class="btn btn-primary">Filtrar</button>
 
     </form>
 

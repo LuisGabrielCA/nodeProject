@@ -2,12 +2,12 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 
-const cadUser = require('./routes/cadUser')
-const delUser = require('./routes/delUser')
-const editUser = require('./routes/editUser')
-const filterUser = require('./routes/filterUser')
-const listUser = require('./routes/listUser')
-const searchUser = require('./routes/searchUser')
+const add = require('./routes/add')
+const del = require('./routes/del')
+const edit = require('./routes/edit')
+const filter = require('./routes/filter')
+const list = require('./routes/list')
+const search = require('./routes/search')
 const home = require('./routes/home')
 
 // TEMPLATE
@@ -21,17 +21,17 @@ app.use(bodyParser.json())
 app.use('/public', express.static('public'))
 
 // ROTAS
-app.use('/cadUser', cadUser)
+app.use('/add', add)
 
-app.use('/delUser', delUser)
+app.use('/del', del)
 
-app.use('/editUser', editUser)
+app.use('/edit', edit)
 
-app.use('/filterUser', filterUser)
+app.use('/filter', filter)
 
-app.use('/listUser', listUser)
+app.use('/list', list)
 
-app.use('/searchUser', searchUser)
+app.use('/search', search)
 
 app.use('/home', home)
 

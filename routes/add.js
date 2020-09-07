@@ -1,14 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const cadastro = require('./models/cadastro')
+const cadastro = require('../models/cadastro')
 
 // formulario add cadastro
-router.get('/addUser', function (req, res) {
+router.get('/formAddUser', function (req, res) {
   res.render('../views/addUser')
 })
 
 // cadastrar usuario
-router.post('/cadUsuario', function (req, res) {
+router.post('/addUser', function (req, res) {
   cadastro.create({
     nome: req.body.nome,
     telefone: req.body.telefone,

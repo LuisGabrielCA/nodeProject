@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const cadastro = require('./models/cadastro')
+const cadastro = require('../models/cadastro')
 
 // formulario procurar cadastro
-router.get('/search', function (req, res) {
+router.get('/searchUser', function (req, res) {
   res.render('../views/search')
 })
 

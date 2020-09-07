@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const cadastro = require('./models/cadastro')
+const cadastro = require('../models/cadastro')
 
 // filtrar
-router.get('/filterBr', function (req, res) {
+router.get('/filterUser', function (req, res) {
   res.render('../views/filterBr')
 })
 
