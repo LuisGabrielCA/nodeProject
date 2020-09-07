@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const cadastro = require('./models/cadastro')
 
 const cadUser = require('./routers/cadUser')
 const delUser = require('./routers/delUser')
