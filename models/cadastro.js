@@ -19,58 +19,39 @@ const cadastro = bd.sequelize.define('usuarios', {
     type: bd.Sequelize.STRING
   },
   celular: {
-    type: bd.Sequelize.STRING
+    type: bd.Sequelize.STRING,
+    validate: {
+      notEmpty: {
+        msg: 'CAMPO CELULAR NÃO PODE SER VAZIO'
+      }
+    }
   },
   bairro: {
-    type: bd.Sequelize.STRING,
-    validate: {
-      notEmpty: {
-        msg: 'CAMPO BAIRRO NÃO PODE SER VAZIO'
-      }
-    }
+    type: bd.Sequelize.STRING
   },
   regiao: {
-    type: bd.Sequelize.STRING,
-    validate: {
-      notEmpty: {
-        msg: 'CAMPO REGIAO NÃO PODE SER VAZIO'
-      }
-    }
+    type: bd.Sequelize.STRING
   },
   sexo: {
-    type: bd.Sequelize.STRING,
-    validate: {
-      notEmpty: {
-        msg: 'CAMPO SEXO NÃO PODE SER VAZIO'
-      }
-    }
+    type: bd.Sequelize.STRING
   },
-  dtnascimento: {
-    type: bd.Sequelize.STRING,
-    validate: {
-      notEmpty: {
-        msg: 'CAMPO DATA DE NASCIMENTO NÃO PODE SER VAZIO'
-      }
-    }
+  dtDia: {
+    type: bd.Sequelize.STRING
+  },
+  dtMes: {
+    type: bd.Sequelize.STRING
+  },
+  dtAno: {
+    type: bd.Sequelize.STRING
   },
   email: {
     type: bd.Sequelize.STRING
   },
   endereco: {
-    type: bd.Sequelize.STRING,
-    validate: {
-      notEmpty: {
-        msg: 'CAMPO ENDERECO NÃO PODE SER VAZIO'
-      }
-    }
+    type: bd.Sequelize.STRING
   },
   estadocivil: {
-    type: bd.Sequelize.STRING,
-    validate: {
-      notEmpty: {
-        msg: 'CAMPO ESTADO CIVIL NÃO PODE SER VAZIO'
-      }
-    }
+    type: bd.Sequelize.STRING
   },
   filhos: {
     type: bd.Sequelize.STRING
@@ -82,6 +63,9 @@ const cadastro = bd.sequelize.define('usuarios', {
     type: bd.Sequelize.STRING
   },
   observacao: {
+    type: bd.Sequelize.STRING
+  },
+  status: {
     type: bd.Sequelize.STRING
   }
 

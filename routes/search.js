@@ -63,7 +63,7 @@ router.get('/searchResult', function (req, res) {
       res.send('ERRO: ' + erro)
     })
   } else {
-    res.render('search')
+    res.render('searchUser')
   }
 })
 

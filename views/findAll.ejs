@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-br">
   <head>
-  	<title>Resultado Pesquisa</title>
+  	<title>Todos os Cadastros</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -62,7 +62,11 @@
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
 
-        <h2 class="mb-4">Resultado da Pesquisa</h2>
+        <h2 class="mb-4">Todos os Cadastros</h2>
+        
+        <p>
+        <button type="button" class="btn btn-success" onClick="docsv()">Exportar para .CVS</button>
+        </p>
 
         <table class="table" id="tabela">
         <thead class="thead-dark">
@@ -71,11 +75,16 @@
               <th scope="col">NOME</th>
               <th scope="col">BAIRRO</th>
               <th scope="col">REGIÃO</th>
-              <th scope="col">TELEFONE</th>
-              <th scope="col">CELULAR</th>
-              <th scope="col">SEXO</th>
-              <th scope="col" >DATA NASCIMENTO</th>
-              <th scope="col">ORIGEM</th>
+              <th scope="col" hidden>TELEFONE</th>
+              <th scope="col" >CELULAR</th>
+              <th scope="col" hidden>SEXO</th>
+              <th scope="col" hidden>DATA NASCIMENTO</th>
+              <th scope="col" hidden>ESTADO CIVIL</th>
+              <th scope="col" hidden>E-MAIL</th>
+              <th scope="col" hidden>FILHOS</th>
+              <th scope="col" hidden>QUANT. FILHOS</th>
+              <th scope="col" hidden>ORIGEM</th>
+              <th scope="col" hidden>OBSERVAÇÃO</th>
               <th scope="col">STATUS</th>
               <th scope="col">DETALHES</th>
               </tr>
@@ -88,11 +97,16 @@
                 <td><%= user.nome %></td>
                 <td><%= user.bairro %></td>
                 <td><%= user.regiao %></td>
-                <td><%= user.telefone %></td>
-                <td><%= user.celular %></td>
-                <td><%= user.sexo %></td>
-                <td ><%= user.dtDia +'/'+ user.dtMes +'/'+ user.dtAno%></td>
-                <td><%= user.origem %></td>
+                <td hidden><%= user.telefone %></td>
+                <td ><%= user.celular %></td>
+                <td hidden><%= user.sexo %></td>
+                <td hidden><%= user.dtDia +'/'+ user.dtMes +'/'+ user.dtAno%></td>
+                <td hidden><%= user.estadocivil %></td>
+                <td hidden><%= user.email %></td>
+                <td hidden><%= user.filhos %></td>
+                <td hidden><%= user.qtFilhos %></td>
+                <td hidden><%= user.origem %></td>
+                <td hidden><%= user.observacao %></td>
                 <td><%= user.status %></td>
                 <td><a href='/list/listUser/<%= user.idusuarios%>' type="button" class="btn btn-primary">+ Detalhes</a></td>
               </tr>
@@ -109,6 +123,34 @@
 	<script src="../public/assets/js/main.js"></script>
   <script src="../public/assets/js/javaS.js"></script>
 
+  <script type="text/javascript">
+    function docsv(){
+      var table = document.getElementById("tabela").innerHTML;
+      var data = table.replace (/<thead class="thead-dark">/g,'')
+        .replace(/<\/thead/g,'')
+        .replace(/<tbody>/g,'')
+        .replace(/<\/tbody/g,'')
+        .replace(/<tr>/g,'')
+        .replace(/<\/tr>/g,'\r\n')
+        .replace(/<th scope="col" hidden="">/g,'')
+        .replace(/<th scope="col">/g,'')
+        .replace(/<\/th>/g,';')
+        .replace(/<td>/g,'')
+        .replace(/<td hidden="">/g,'')
+        .replace(/<\/td>/g,';')
+        .replace(/\t/g,'')
+        .replace(/\n/g,'')
+        .replace(/<td id="link">/g,'')
+        .replace(/<tr role="row">/g,'')
+
+             var myLink = document.createElement('a');
+             myLink.download = "csvname.csv";
+             myLink.href = "data:application/csv," + escape(data);
+             myLink.click();
+
+    }
+
+  </script>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

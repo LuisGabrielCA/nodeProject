@@ -16,14 +16,17 @@ router.post('/addUser', function (req, res) {
     bairro: req.body.bairro,
     regiao: req.body.regiao,
     sexo: req.body.sexo,
-    dtnascimento: req.body.dtnascimento,
+    dtDia: req.body.dtnascimento.split('/')[0],
+    dtMes: req.body.dtnascimento.split('/')[1],
+    dtAno: req.body.dtnascimento.split('/')[2],
     email: req.body.email,
     endereco: req.body.endereco,
     estadocivil: req.body.estadocivil,
     filhos: req.body.filhos,
     qtFilhos: req.body.qtFilhos,
     origem: req.body.origem,
-    observacao: req.body.observacao
+    observacao: req.body.observacao,
+    status: req.body.status
 
   }).then(function () {
     res.render('../views/addUserSucess')

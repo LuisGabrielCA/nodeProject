@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/public/assets/css/styleMenu.css">
     <link rel="stylesheet" href="/public/assets/css/styleForm.css">
-        
+
   </head>
   <body>
 		
@@ -30,7 +30,7 @@
               <h5 id="linha">.</h5> 
         <ul class="list-unstyled components mb-5">
           <li class="active">
-            <a href="/" aria-expanded="false" class="">Home</a>
+            <a href="/home/home" aria-expanded="false" class="">Home</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
             </ul>
           </li>
@@ -45,6 +45,15 @@
           <li>
           <a href="/filter/filterUser">Filtrar</a>
           </li>
+          <li>
+            <a href="/find/findAll">Listar Todos</a>
+            </li>
+            <% if (user.eAdmin !=0) { %>
+              <p></p>
+              <li>
+              <a href="/addlogin/addlogin">Cadastrar Login</a>
+              </li>
+              <% } %>
   
         </ul>
     
@@ -58,80 +67,85 @@
       
     <div class="form-group col-md-4">
       <label for="nome">Nome</label>
-      <input readonly type="text" class="form-control" name="nome" value="<%= user.nome %>">
+      <input readonly type="text" class="form-control" name="nome" value="<%= usuario.nome %>">
     </div>
     
     <div class="form-group col-md-4">
       <label for="endereco">Endereço</label>
-      <input readonly type="text" class="form-control" id="endereco" name="endereco" value="<%= user.endereco %>">
+      <input readonly type="text" class="form-control" id="endereco" name="endereco" value="<%= usuario.endereco %>">
 
     </div>
     <div class="form-row">
       <div class="form-group col-md-2">
-        <label id="tel" for="telefone">Telefone</label>
-        <input readonly type="text" class="form-control" id="telefone" name="telefone" value="<%= user.telefone%>">
+        <label class="updateText" id="tel" for="telefone">Telefone</label>
+        <input readonly type="text" class="form-control update-form2" id="telefone" name="telefone" value="<%= usuario.telefone%>">
       </div>
       <div class="form-group col-md-2">
-        <label id="cel" for="celular">Celular</label>
-        <input readonly type="text" class="form-control" id="celular" name="celular" value="<%= user.celular %>">
+        <label class="updateText" id="cel" for="celular">Celular</label>
+        <input readonly type="text" class="form-control update-form2" id="celular" name="celular" value="<%= usuario.celular %>">
       </div>
     </div>
     
       <div class="form-group col-md-4">
         <label for="bairro">Bairro</label>
-        <input readonly type="text" class="form-control" id="bairro" name="bairro" value="<%= user.bairro %>">
+        <input readonly type="text" class="form-control" id="bairro" name="bairro" value="<%= usuario.bairro %>">
       </div>
       <div class="form-group col-md-4">
         <label for="regiao">Região</label>
-        <input readonly type="text" class="form-control" id="regiao" name="regiao" value="<%= user.regiao %>">
+        <input readonly type="text" class="form-control" id="regiao" name="regiao" value="<%= usuario.regiao %>">
       </div>
     
     <div class="form-row">
     <div class="form-group col-md-2">
-      <label id="sex" for="sexo">Sexo</label>
-      <input readonly type="text" id="sexo" name="sexo" class="form-control" value="<%= user.sexo %>">
+      <label class="updateText" id="sex" for="sexo">Sexo</label>
+      <input readonly type="text" id="sexo" name="sexo" class="form-control update-form2" value="<%= usuario.sexo %>">
     </div>
     <div class="form-group col-md-2">
-      <label id="dt" for="dtnascimento">Data de Nascimento</label>
-      <input readonly type="text" class="form-control" id="dtnascimento" name="dtnascimento" value="<%= user.dtnascimento %>">
+      <label class="updateText" id="dt1" for="dtnascimento">Data de Nascimento</label>
+      <input readonly type="text" class="form-control update-form2" id="dtnascimento" name="dtnascimento" data-mask="00/00/0000" value ="<%= usuario.dtDia +'/'+ usuario.dtMes +'/'+ usuario.dtAno %>">
     </div>
     </div>
     
     <div class="form-row">
     <div class="form-group col-md-2">
-      <label id="emaill" for="email">E-mail</label>
-      <input readonly type="text" class="form-control" id="email" name="email" value="<%= user.email %>">
+      <label class="updateText" id="emaill" for="email">E-mail</label>
+      <input readonly type="text" class="form-control update-form2" id="email" name="email" value="<%= usuario.email %>">
     </div>
     <div class="form-group col-md-2">
-      <label id="est" for="estadocivil">Estado Civil</label>
-      <input readonly type="text" id="estadocivil" name="estadocivil" class="form-control" value="<%= user.estadocivil %>">
+      <label class="updateText" id="est" for="estadocivil">Estado Civil</label>
+      <input readonly type="text" id="estadocivil" name="estadocivil" class="form-control update-form2" value="<%= usuario.estadocivil %>">
     </div>
     </div>
 
     <div class="form-row">
     <div class="form-group col-md-2">
-      <label id="son" for="filhos">Filhos</label>
-      <input readonly type="text" class="form-control" id="filhos" name="filhos" value="<%= user.filhos %>">
+      <label class="updateText" id="son" for="filhos">Filhos</label>
+      <input readonly type="text" class="form-control update-form2" id="filhos" name="filhos" value="<%= usuario.filhos %>">
     </div>
     <div class="form-group col-md-2">
-      <label id="qt" for="qtFilhos">Quant. Filhos</label>
-      <input readonly type="text" class="form-control" id="qtFilhos" name="qtFilhos" value="<%= user.qtFilhos %>">
+      <label class="updateText" id="qt" for="qtFilhos">Quant. Filhos</label>
+      <input readonly type="text" class="form-control update-form2" id="qtFilhos" name="qtFilhos" value="<%= usuario.qtFilhos %>">
     </div>
     </div>
   
     <div class="form-group col-md-4">
       <label for="origem">Origem</label>
-      <input readonly type="text" class="form-control" id="origem" name="origem" value="<%= user.origem %>">
+      <input readonly type="text" class="form-control" id="origem" name="origem" value="<%= usuario.origem %>">
     </div>
     <div class="form-group col-md-4">
       <label for="observacao">Observação</label>
-      <input readonly type="text" class="form-control" id="observacao" name="observacao" value="<%= user.observacao%>">
+      <input readonly type="text" class="form-control" id="observacao" name="observacao" value="<%= usuario.observacao%>">
     </div>
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleted">Deletar</button>
-    <a href='/edit/updateUser/<%= user.idusuarios%>' type="button" class="btn btn-primary">Editar</a>
-    <hr>
-    </hr>
-
+    <div class="form-group col-md-4">
+      <label for="status">STATUS</label>
+      <input readonly type="text" class="form-control" id="status" name="status" value="<%= usuario.status%>">
+    </div>
+    
+    <% if (user.eAdmin !=0) { %>
+    <button id="del" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleted">Deletar</button>
+    <% } %>
+    <a href='/edit/updateUser/<%= usuario.idusuarios%>' type="button" class="btn btn-primary">Editar</a>
+  
     <!------------------------------------------------------------------------------------------------------------------------------------>
     <div class="modal" tabindex="-1" role="dialog" id ="deleted">
       <div class="modal-dialog" role="document">
@@ -146,7 +160,7 @@
             <p>Você realmente deseja deletar o cadastro?</p>
           </div>
           <div class="modal-footer">
-            <a href='/del/delUser/<%= user.idusuarios%>' type="button" class="btn btn-danger">Deletar</a>
+            <a href='/del/delUser/<%= usuario.idusuarios%>' type="button" class="btn btn-danger">Deletar</a>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
           </div>
         </div>
@@ -154,6 +168,16 @@
     </div>
   
   </form>
+  <% if (user.eAdmin !=0) { %>
+ <div class="adm">
+      <label for="createdAt">CRIADO EM: </label>
+      <input readonly type="text" class="form-control up1" id="createdAt" name="createdAt" value="<%= usuario.createdAt%>">
+      <p></p>
+      <label for="updatedAt">EDITADO EM:</label>
+      <input readonly type="text" class="form-control up1" id="updatedAt" name="updatedAt" value="<%= usuario.updatedAt%>">
+
+  </div>
+  <% } %>
 
   <script src="/public/assets/js/jquery.min.js"></script>
   <script src="/public/assets/js/popper.js"></script>

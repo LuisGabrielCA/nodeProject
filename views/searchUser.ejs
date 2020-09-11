@@ -29,7 +29,7 @@
               <h5 id="linha">.</h5> 
         <ul class="list-unstyled components mb-5">
           <li class="active">
-            <a href="/" aria-expanded="false" class="">Home</a>
+            <a href="/home/home" aria-expanded="false" class="">Home</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
             </ul>
           </li>
@@ -44,7 +44,15 @@
           <li>
           <a href="/filter/filterUser">Filtrar</a>
           </li>
-  
+          <li>
+            <a href="/find/findAll">Listar Todos</a>
+            </li>
+            <% if (user.eAdmin !=0) { %>
+              <p></p>
+              <li>
+              <a href="/addlogin/addlogin">Cadastrar Login</a>
+              </li>
+              <% } %>
         </ul>
     
     </nav>
@@ -55,33 +63,30 @@
         
     <form action="/search/searchResult" method="GET">
       
+
+      <label>Preencha apenas UM dos campos abaixo: </label>
+
         <div class="form-group col-md-4">
         <label for="idusuarios">ID</label>
         <input type="text" class="form-control" id="idusuarios" name="idusuarios" >
         </div>
 
-        <label>OU</label>
 
         <div class="form-group col-md-4">
         <label  for="nome">Nome</label>
         <input type="text" class="form-control" id="nome" name="nome" >
         </div>
 
-        <label>OU</label>
-
         <div class="form-group col-md-4">
         <label  id= "tel" for="telefone">Telefone</label>
         <input  type="text" class="form-control" id="telefone" name="telefone" data-mask="(00) 0000-0000">
         </div>
-
-        <label>OU</label>
 
         <div class="form-group col-md-4">
         <label id="cel" for="celular">Celular</label>
         <input type="text" class="form-control" id="celular" name="celular" data-mask="(00) 00000-0000">
         </div>
 
-    
         <button type="submit" class="btn btn-primary">Pesquisar</button>
 
     </form>
@@ -89,7 +94,9 @@
     <script src="../public/assets/js/jquery.min.js"></script>
     <script src="../public/assets/js/popper.js"></script>
     <script src="../public/assets/js/bootstrap.min.js"></script>
-	  <script src="../public/assets/js/main.js"></script>
+    <script src="../public/assets/js/main.js"></script>
+    <script src="../public/assets/js/jquery.mask.min.js"></script>
+    <script src="../public/assets/js/javaS.js"></script>
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

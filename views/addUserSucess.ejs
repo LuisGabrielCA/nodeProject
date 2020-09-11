@@ -29,7 +29,7 @@
               <h5 id="linha">.</h5> 
         <ul class="list-unstyled components mb-5">
           <li class="active">
-            <a href="/" aria-expanded="false" class="">Home</a>
+            <a href="/home/home" aria-expanded="false" class="">Home</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
             </ul>
           </li>
@@ -44,7 +44,15 @@
           <li>
           <a href="/filter/filterUser">Filtrar</a>
           </li>
-  
+          <li>
+            <a href="/find/findAll">Listar Todos</a>
+            </li>
+            <% if (user.eAdmin !=0) { %>
+              <p></p>
+              <li>
+              <a href="/addlogin/addlogin">Cadastrar Login</a>
+              </li>
+              <% } %>
         </ul>
     
     </nav>
@@ -60,7 +68,7 @@
         </p>
       </div>
 
-      <a href='/'type="button" class="btn btn-primary" >Voltar</a>
+      <a href='/home/home'type="button" class="btn btn-primary" >Voltar</a>
     
   </div>
        

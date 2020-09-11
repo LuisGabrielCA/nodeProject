@@ -29,7 +29,7 @@
               <h5 id="linha">.</h5> 
         <ul class="list-unstyled components mb-5">
           <li class="active">
-            <a href="/" aria-expanded="false" class="">Home</a>
+            <a href="/home/home" aria-expanded="false" class="">Home</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
             </ul>
           </li>
@@ -44,6 +44,15 @@
           <li>
           <a href="/filter/filterUser">Filtrar</a>
           </li>
+          <li>
+            <a href="/find/findAll">Listar Todos</a>
+            </li>
+            <% if (user.eAdmin !=0) { %>
+              <p></p>
+              <li>
+              <a href="/addlogin/addlogin">Cadastrar Login</a>
+              </li>
+              <% } %>
   
         </ul>
     
@@ -51,7 +60,7 @@
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
 
-        <h2 class="mb-4">Filtrar por Bairro/Região</h2>
+        <h2 class="mb-4">Filtrar</h2>
         
     <form action="/filter/resultFilter" method="GET">
 
@@ -65,14 +74,11 @@
                 <label for="regiao">Região</label>
                 <input type="text" class="form-control" id="regiao" name="regiao" >
             </div>
+
             <div class="form-group col-md-2">
-              <label id="sex" for="sexo">Sexo</label>
-              <select id="sexo" name="sexo" class="form-control">
-                <option selected></option>
-                <option value="MASCULINO">Masculino</option>
-                <option value="FEMININO">Feminino</option>
-            </select>
-            </div>
+              <label  for="origem">Origem</label>
+              <input type="text" class="form-control" id="origem" name="origem" >
+          </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-2">
@@ -88,9 +94,17 @@
           <div class="form-group col-md-2">
             <label id="son" for="filhos">Filhos</label>
             <select id="filhos" name="filhos" class="form-control">
-              <option selected> </option>
+              <option selected></option>
               <option value="SIM">Sim</option>
               <option value="NAO">Não</option>
+          </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label id="sex" for="sexo">Sexo</label>
+            <select id="sexo" name="sexo" class="form-control">
+              <option selected></option>
+              <option value="MASCULINO">Masculino</option>
+              <option value="FEMININO">Feminino</option>
           </select>
           </div>
           </div>

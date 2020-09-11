@@ -30,7 +30,7 @@
               <h5 id="linha">.</h5> 
       <ul class="list-unstyled components mb-5">
         <li class="active">
-          <a href="/" aria-expanded="false" class="">Home</a>
+          <a href="/home/home" aria-expanded="false" class="">Home</a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
           </ul>
         </li>
@@ -45,6 +45,15 @@
         <li>
         <a href="/filter/filterUser">Filtrar</a>
         </li>
+        <li>
+          <a href="/find/findAll">Listar Todos</a>
+          </li>
+          <% if (user.eAdmin !=0) { %>
+            <p></p>
+            <li>
+            <a href="/addlogin/addlogin">Cadastrar Login</a>
+            </li>
+            <% } %>
 
       </ul>
   
@@ -68,51 +77,51 @@
     </div>
     <div class="form-group col-md-4">
       <label for="endereco">Endereço</label>
-      <input type="text" class="form-control" id="endereco" name="endereco" value="<%= usuario.endereco %>" required>
+      <input type="text" class="form-control" id="endereco" name="endereco" value="<%= usuario.endereco %>">
 
     </div>
     <div class="form-row">
       <div class="form-group col-md-2">
-        <label id="tel" for="telefone">Telefone</label>
-        <input type="text" class="form-control" id="telefone" name="telefone" value="<%= usuario.telefone%>" data-mask="(00) 0000-0000">
+        <label class="updateText" id="tel" for="telefone">Telefone</label>
+        <input type="text" class="form-control update-form2" id="telefone" name="telefone" value="<%= usuario.telefone%>" data-mask="(00) 0000-0000">
       </div>
       <div class="form-group col-md-2">
-        <label id="cel" for="celular">Celular</label>
-        <input type="text" class="form-control" id="celular" name="celular" value="<%= usuario.celular %>" data-mask="(00) 00000-0000">
+        <label class="updateText" id="cel" for="celular">Celular</label>
+        <input type="text" class="form-control update-form2" id="celular" name="celular" value="<%= usuario.celular %>" data-mask="(00) 00000-0000" required>
       </div>
     </div>
     
       <div class="form-group col-md-4">
         <label for="bairro">Bairro</label>
-        <input type="text" class="form-control" id="bairro" name="bairro" value="<%= usuario.bairro %>" required>
+        <input type="text" class="form-control" id="bairro" name="bairro" value="<%= usuario.bairro %>">
       </div>
       <div class="form-group col-md-4">
         <label for="regiao">Região</label>
-        <input type="text" class="form-control" id="regiao" name="regiao" value="<%= usuario.regiao %>" required>
+        <input type="text" class="form-control" id="regiao" name="regiao" value="<%= usuario.regiao %>">
       </div>
       <div class="form-row">
     <div class="form-group col-md-2">
-      <label id="sex" for="sexo">Sexo</label>
-      <select id="sexo" name="sexo" class="form-control" required>
+      <label class="updateText" id="sex" for="sexo">Sexo</label>
+      <select id="sexo" name="sexo" class="form-control update-form2" required>
         <option selected><%= usuario.sexo %></option>
         <option value="MASCULINO">Masculino</option>
         <option value="FEMININO">Feminino</option>
     </select>
     </div>
     <div class="form-group col-md-2">
-      <label id="dt" for="dtnascimento">Data de Nascimento</label>
-      <input type="text" class="form-control" id="dtnascimento" name="dtnascimento" value="<%= usuario.dtnascimento %>" data-mask="00/00/0000" required>
+      <label class="updateText" id="dt" for="dtnascimento">Data de Nascimento</label>
+      <input type="text" class="form-control update-form2" id="dtnascimento" name="dtnascimento" data-mask="00/00/0000" value ="<%= usuario.dtDia +'/'+ usuario.dtMes +'/'+ usuario.dtAno %>">
     </div>
     </div>
     
     <div class="form-row">
     <div class="form-group col-md-2">
-      <label id="emaill" for="email">E-mail</label>
-      <input type="text" class="form-control" id="email" name="email" value="<%= usuario.email %>">
+      <label class="updateText" id="emaill" for="email">E-mail</label>
+      <input type="text" class="form-control update-form2" id="email" name="email" value="<%= usuario.email %>">
     </div>
     <div class="form-group col-md-2">
-      <label id="est" for="estadocivil">Estado Civil</label>
-      <select id="estadocivil" name="estadocivil" class="form-control" required>
+      <label class="updateText" id="est" for="estadocivil">Estado Civil</label>
+      <select id="estadocivil" name="estadocivil" class="form-control update-form2">
         <option selected><%= usuario.estadocivil %></option>
         <option value="SOLTEIRO(A)">Solteiro(a)</option>
         <option value="CASADO(A)">Casado(a)</option>
@@ -123,16 +132,16 @@
     </div>
     <div class="form-row">
     <div class="form-group col-md-2">
-      <label id="son" for="filhos">Filhos</label>
-      <select id="filhos" name="filhos" class="form-control" required>
+      <label class="updateText" id="son" for="filhos">Filhos</label>
+      <select id="filhos" name="filhos" class="form-control update-form2">
         <option selected><%= usuario.filhos %> </option>
         <option value="SIM">Sim</option>
         <option value="NAO">Não</option>
     </select>
     </div>
     <div class="form-group col-md-2">
-      <label id="qt" for="qtFilhos">Quant. Filhos</label>
-      <input type="text" class="form-control" id="qtFilhos" name="qtFilhos" value="<%= usuario.qtFilhos %>">
+      <label class="updateText" id="qt" for="qtFilhos">Quant. Filhos</label>
+      <input type="text" class="form-control update-form2" id="qtFilhos" name="qtFilhos" value="<%= usuario.qtFilhos %>">
     </div>
     </div>
     <div class="form-group col-md-4">
@@ -143,8 +152,16 @@
       <label for="observacao">Observação</label>
       <input type="text" class="form-control" id="observacao" name="observacao" value="<%= usuario.observacao%>">
     </div>
+    <div class="form-group col-md-4">
+      <label for="status">STATUS</label>
+      <select id="status" name="status" class="form-control">
+        <option selected><%= usuario.status %> </option>
+        <option value="ATIVO">ATIVO</option>
+        <option value="INATIVO">INATIVO</option>
+    </select>
+    </div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit">Editar</button>
-    <a href='/'type="button" class="btn btn-secondary" >Cancelar</a>
+    <a href='/home/home'type="button" class="btn btn-secondary" >Cancelar</a>
 
     <!------------------------------------------------------------------------------------------------------------------------------------>
     <div class="modal" tabindex="-1" role="dialog" id ="edit">
@@ -177,6 +194,7 @@
     <script src="/public/assets/js/bootstrap.min.js"></script>
     <script src="/public/assets/js/main.js"></script>
     <script src="/public/assets/js/javaS.js"></script>
+    <script src="/public/assets/js/jquery.mask.min.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

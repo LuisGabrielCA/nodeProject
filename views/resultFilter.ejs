@@ -30,7 +30,7 @@
               <h5 id="linha">.</h5> 
         <ul class="list-unstyled components mb-5">
           <li class="active">
-            <a href="/" aria-expanded="false" class="">Home</a>
+            <a href="/home/home" aria-expanded="false" class="">Home</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
             </ul>
           </li>
@@ -45,7 +45,15 @@
           <li>
           <a href="/filter/filterUser">Filtrar</a>
           </li>
-  
+          <li>
+            <a href="/find/findAll">Listar Todos</a>
+            </li>
+            <% if (user.eAdmin !=0) { %>
+              <p></p>
+              <li>
+              <a href="/addlogin/addlogin">Cadastrar Login</a>
+              </li>
+              <% } %>
         </ul>
     
     </nav>
@@ -69,13 +77,14 @@
               <th scope="col" hidden>TELEFONE</th>
               <th scope="col" >CELULAR</th>
               <th scope="col" hidden>SEXO</th>
-              <th scope="col" hidden>DATA DE NASCIMENTO</th>
+              <th scope="col" hidden >DATA NASCIMENTO</th>
               <th scope="col" hidden>ESTADO CIVIL</th>
               <th scope="col" hidden>E-MAIL</th>
               <th scope="col" hidden>FILHOS</th>
               <th scope="col" hidden>QUANT. FILHOS</th>
-              <th scope="col" hidden>ORIGEM</th>
+              <th scope="col" hidden >ORIGEM</th>
               <th scope="col" hidden>OBSERVAÇÃO</th>
+              <th scope="col" >STATUS</th>
               <th scope="col">DETALHES</th>
               </tr>
             </thead>
@@ -90,13 +99,14 @@
                 <td hidden><%= user.telefone %></td>
                 <td ><%= user.celular %></td>
                 <td hidden><%= user.sexo %></td>
-                <td hidden><%= user.dtnascimento %></td>
+                <td hidden><%= user.dtDia +'/'+ user.dtMes +'/'+ user.dtAno%></td>
                 <td hidden><%= user.estadocivil %></td>
                 <td hidden><%= user.email %></td>
                 <td hidden><%= user.filhos %></td>
                 <td hidden><%= user.qtFilhos %></td>
                 <td hidden><%= user.origem %></td>
                 <td hidden><%= user.observacao %></td>
+                <td ><%= user.status %></td>
                 <td><a href='/list/listUser/<%= user.idusuarios%>' type="button" class="btn btn-primary">+ Detalhes</a></td>
               </tr>
             </tbody>
@@ -110,7 +120,7 @@
   <script src="../public/assets/js/popper.js"></script>
   <script src="../public/assets/js/bootstrap.min.js"></script>
 	<script src="../public/assets/js/main.js"></script>
-  <script> src="../public/assets/js/javaS.js"</script>
+  <script src="../public/assets/js/javaS.js"></script>
 
   <script type="text/javascript">
     function docsv(){
