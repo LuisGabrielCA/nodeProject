@@ -68,4 +68,7 @@ app.use('/home', eAdmin, home)
 app.use('/find', eAdmin, find)
 
 // OUTROS
-app.listen(8080)
+var port = process.env.PORT || 3000
+app.listen(port, function () {
+  console.log('Umbler listening on port %s', port)
+})
