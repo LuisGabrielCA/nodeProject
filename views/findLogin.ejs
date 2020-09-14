@@ -67,10 +67,6 @@
       <div id="content" class="p-4 p-md-5 pt-5">
 
         <h2 class="mb-4">Logins Cadastrados</h2>
-        
-        <p>
-        <button type="button" class="btn btn-success" onClick="docsv()">Exportar para .CVS</button>
-        </p>
 
         <table class="table" id="tabela">
         <thead class="thead-dark">
@@ -83,10 +79,14 @@
               </tr>
             </thead>
     <% loginbd.forEach(function(user){ %>
-      
+      <% if (user.id = 1) {
+        var userA = Admin;
+      } else {
+        userA = Usuario;
+      }
             <tbody>
               <tr>
-                <td><%= user.id %></td>
+                <td><%= userA %></td>
                 <td><%= user.login %></td>
                 <td><%= user.senha %></td>
                 <td><%= user.eAdmin %></td>
