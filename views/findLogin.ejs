@@ -79,6 +79,7 @@
               <th scope="col">LOGIN</th>
               <th scope="col">SENHA</th>
               <th scope="col">TIPO DE LOGIN</th>
+              <th scope="col"></th>
               </tr>
             </thead>
     <% loginbd.forEach(function(user){ %>
@@ -90,7 +91,7 @@
                 <td><%= user.senha %></td>
                 <td><%= user.eAdmin %></td>
                 <td><%= user.status %></td>
-                <td><a href='/delLogin/<%= user.id%>' type="button" class="btn btn-danger">EXCLUIR</a></td>
+                <td><a href='adminLogin/delLogin/<%= user.id%>' type="button" class="btn btn-danger">EXCLUIR</a></td>
               </tr>
             </tbody>
 
