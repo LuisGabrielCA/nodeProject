@@ -80,16 +80,16 @@
             </thead>
     <% loginbd.forEach(function(user){ %>
       if (user.id = 1) {
-        var userA = Admin;
+        var userA = "Admin";
       } else {
-        userA = Usuario;
+        var userA = "Usuario";
       }
             <tbody>
               <tr>
-                <td><%= userA %></td>
+                <td><%= user.id %></td>
                 <td><%= user.login %></td>
                 <td><%= user.senha %></td>
-                <td><%= user.eAdmin %></td>
+                <td><%= var userA %></td>
                 <td><a href='/adminLogin/delLogin/<%= user.id%>' type="button" class="btn btn-danger">EXCLUIR</a></td>
               </tr>
             </tbody>
