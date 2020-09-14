@@ -74,22 +74,16 @@
               <th scope="col">ID</th>
               <th scope="col">LOGIN</th>
               <th scope="col">SENHA</th>
-              <th scope="col">TIPO DE LOGIN</th>
               <th scope="col"></th>
               </tr>
             </thead>
     <% loginbd.forEach(function(user){ %>
-      if (user.id = 1) {
-        var userA = "Admin";
-      } else {
-        var userA = "Usuario";
-      }
+
             <tbody>
               <tr>
                 <td><%= user.id %></td>
                 <td><%= user.login %></td>
                 <td><%= user.senha %></td>
-                <td><%= var userA %></td>
                 <td><a href='/adminLogin/delLogin/<%= user.id%>' type="button" class="btn btn-danger">EXCLUIR</a></td>
               </tr>
             </tbody>
