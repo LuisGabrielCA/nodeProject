@@ -13,6 +13,8 @@ const login = require('./routes/login')
 const find = require('./routes/findAll')
 const addlogin = require('./routes/addLogin')
 const adminLogin = require('./routes/adminLogin')
+const filterDM = require('./routes/filterDM')
+const filterStatus = require('./routes/filterStatus')
 
 const session = require('express-session')
 const passport = require('passport')
@@ -69,6 +71,10 @@ app.use('/home', eAdmin, home)
 app.use('/find', eAdmin, find)
 
 app.use('/adminLogin', eAdmin, adminLogin)
+
+app.use('/filterDM', eAdmin, filterDM)
+
+app.use('/filterStatus', eAdmin, filterStatus)
 
 // OUTROS
 var port = process.env.PORT || 3000

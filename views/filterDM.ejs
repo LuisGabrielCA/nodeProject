@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-br">
   <head>
-  	<title>Filtrar</title>
+  	<title>Filtrar Dia/Mes</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -64,56 +64,22 @@
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5 pt-5">
 
-        <h2 class="mb-4">Filtrar</h2>
+        <h2 class="mb-4">Filtrar por Dia/Mes</h2>
         
-        <a href='/filterDM/filterDM' type="button" class="btn btn-info" >Filtrar Por Dia/Mês</a>
-        <a href='/filterStatus/filterStatus' type="button" class="btn btn-info" >Filtrar Por Status</a>
-
-    <form action="/filter/resultFilter" method="GET">
+    <form action="/filterDM/resultFilterDM" method="GET">
 
     
         <div class="form-row">
             <div class="form-group col-md-2">
-                <label  for="bairro">Bairro</label>
-                <input type="text" class="form-control" id="bairro" name="bairro" >
+                <label  for="dtDia">Dia Aniversário</label>
+                <input type="number" class="form-control" id="dtDia" name="dtDia" >
             </div>
             <div class="form-group col-md-2">
-                <label for="regiao">Região</label>
-                <input type="text" class="form-control" id="regiao" name="regiao" >
+                <label for="dtMes">Mês Aniversário</label>
+                <input type="number" class="form-control" id="dtMes" name="dtMes" >
             </div>
 
-            <div class="form-group col-md-2">
-              <label  for="origem">Origem</label>
-              <input type="text" class="form-control" id="origem" name="origem" >
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-2">
-            <label id="est" for="estadocivil">Estado Civil</label>
-            <select id="estadocivil" name="estadocivil" class="form-control">
-              <option selected> </option>
-              <option value="SOLTEIRO(A)">Solteiro(a)</option>
-              <option value="CASADO(A)">Casado(a)</option>
-              <option value="DIVORCIADO(A)">Divorciado(a)</option>
-              <option value="VIUVO(A)">Viuvo(a)</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label id="son" for="filhos">Filhos</label>
-            <select id="filhos" name="filhos" class="form-control">
-              <option selected></option>
-              <option value="SIM">Sim</option>
-              <option value="NAO">Não</option>
-          </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label id="sex" for="sexo">Sexo</label>
-            <select id="sexo" name="sexo" class="form-control">
-              <option selected></option>
-              <option value="MASCULINO">Masculino</option>
-              <option value="FEMININO">Feminino</option>
-          </select>
-          </div>
+            
           </div>
     
         <button type="submit" class="btn btn-primary">Filtrar</button>
