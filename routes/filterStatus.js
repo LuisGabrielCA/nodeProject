@@ -14,7 +14,12 @@ router.get('/resultFilterStatus', function (req, res) {
   if (s === '') {
     res.render('resultFilterStatus')
   } else {
-    cadastro.findAll().then(function (cadastro) {
+    cadastro.findAll({
+      where: {
+        status: req.query.status
+
+      }
+    }).then(function (cadastro) {
       res.render('resultFilterStatus', { cadastro: cadastro })
     }).catch(function (erro) {
       res.send('ERRO: ' + erro)

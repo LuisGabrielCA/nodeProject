@@ -16,19 +16,23 @@ router.get('/resultFilterDM', function (req, res) {
     res.render('resultFilterDM')
   }
   if (d !== '' && m === '') {
-    cadastro.findAll().then(function (cadastro) {
+    cadastro.findAll({
+      where: {
+        dtDia: req.query.dtDia
+
+      }
+    }).then(function (cadastro) {
       res.render('resultFilterDM', { cadastro: cadastro })
     }).catch(function (erro) {
       res.send('ERRO: ' + erro)
     })
   } else if (d === '' && m !== '') {
-    cadastro.findAll().then(function (cadastro) {
-      res.render('resultFilterDM', { cadastro: cadastro })
-    }).catch(function (erro) {
-      res.send('ERRO: ' + erro)
-    })
-  } else if (d !== '' && m !== '') {
-    cadastro.findAll().then(function (cadastro) {
+    cadastro.findAll({
+      where: {
+        dtMes: req.query.dtMes
+
+      }
+    }).then(function (cadastro) {
       res.render('resultFilterDM', { cadastro: cadastro })
     }).catch(function (erro) {
       res.send('ERRO: ' + erro)
