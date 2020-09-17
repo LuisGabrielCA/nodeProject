@@ -82,7 +82,7 @@
               <tr>
                 <td><%= user.id %></td>
                 <td><%= user.login %></td>
-                <% if (user.id != 2) { %>
+                <% if (user.id != 1) { %>
                 <td><%= user.senha %></td>
                 <td><a href='/adminLogin/delLogin/<%= user.id%>' type="button" class="btn btn-danger">EXCLUIR</a></td>
                 <% } %>
