@@ -11,10 +11,8 @@ router.get('/findLogin', function (req, res) {
 })
 
 router.get('/delLogin/:id', function (req, res) {
-  const id = req.params.id
-
   loginbd.destroy({
-    where: { id: id && id !== 1 }
+    where: { id: req.params.id }
   }).then(function () {
     res.render('../views/delUser')
   }).catch(function (erro) {
