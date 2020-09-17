@@ -78,7 +78,9 @@
               </tr>
             </thead>
     <% loginbd.forEach(function(user){ %>
-
+      <% if (user.id = 3) { %>
+        <td></td>
+        <% } %>
             <tbody>
               <tr>
                 <td><%= user.id %></td>
@@ -87,7 +89,6 @@
                 <td><a href='/adminLogin/delLogin/<%= user.id%>' type="button" class="btn btn-danger">EXCLUIR</a></td>
               </tr>
             </tbody>
-
     <% }) %>
         </table>
 

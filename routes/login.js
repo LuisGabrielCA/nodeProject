@@ -7,7 +7,7 @@ router.get('/', function (req, res) {
 })
 
 router.post('/', (req, res, next) => {
-  passport.authenticate('loca-vai', {
+  passport.authenticate('local-login', {
     successRedirect: '/home/home',
     failureRedirect: '/'
   })(req, res, next)

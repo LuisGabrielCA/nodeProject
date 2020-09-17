@@ -3,7 +3,7 @@ const User = require('../models/loginbd')
 // const bcrypt = require('bcryptjs')
 
 module.exports = function (passport) {
-  passport.use('loca-vai',
+  passport.use('local-login',
     new LocalStrategy(
       { usernameField: 'login', passwordField: 'senha' },
       (login, senha, done) => {
