@@ -77,7 +77,7 @@ app.use('/filterDM', eAdmin, filterDM)
 app.use('/filterStatus', eAdmin, filterStatus)
 
 // OUTROS
-var port = process.env.PORT || 3000
+const port = process.env.PORT || 3000
 app.listen(port, function () {
   console.log('Umbler listening on port %s', port)
 })

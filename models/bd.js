@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const sequelize = new Sequelize('bdcp', 'luisg', 'bduser01', {
+const sequelize = new Sequelize('bdcpteste', 'luisg1', 'bduser01', {
   host: 'mysql669.umbler.com',
   dialect: 'mysql',
   dialectOptions: {
